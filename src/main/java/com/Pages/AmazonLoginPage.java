@@ -12,11 +12,13 @@ public class AmazonLoginPage extends AmazonLoginPageElements {
 	//public static String expectedTitle="Online Shopping site in India: Shop Online for Mobiles, Books, Watches, Shoes and More - Amazon.in";
 	public AmazonLoginPage(WebDriver webDriver) {
 		this.webDriver=webDriver;
+		webDriver.navigate().refresh();
 		reusableUtils=new ReusableUtils(webDriver);
 		PageFactory.initElements(webDriver, this);
 	}
 	public void launchAmazon(String strAppurl) {
 		reusableUtils.gotoURL(strAppurl);
+		webDriver.navigate().refresh();
 	}
 	public void searchingProduct(String searchMobile) {
 		reusableUtils.sendText(searchbar, searchMobile);

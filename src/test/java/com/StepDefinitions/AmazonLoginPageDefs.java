@@ -19,6 +19,7 @@ public class AmazonLoginPageDefs {
 	public void navigate_to_amazon_application() {
 		 String strAppURL=ConfigFileManager.getInstance().getReadConfig().getApplicationURL();
 		  amazonLoginPage.launchAmazon(strAppURL);
+
 	}
 
 	@And("Search for {string} from the search field")
