@@ -1,0 +1,23 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                // Replace 'mvn clean install' with the Maven command to build your project
+                bat 'mvn clean install'
+            }
+        }
+    }
+
+    post {
+        always {
+            emailext(
+                subject: "Pipeline ${currentBuild.result}: ${env.JOB_NAME}",
+                body: "Pipeline ${currentBuild.result}: ${env.BUILD_URL}",
+                to: 'your_email@example.com',
+                attachLog: true,
+            )
+        }
+    }
+}
